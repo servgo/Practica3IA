@@ -13,24 +13,24 @@ data = {
 df = pd.DataFrame(data)
 
 def entropia(columna):
-    valores = columna.value_counts()
+    valores = columna.value_counts() #Cuantas repeticiones hay de los valores unicos
     num = len(columna)
     entr = 0
-    for count in valores:
-        p = count / num
+    for i in valores:
+        p = i / num
         entr -= p * math.log2(p)
     return entr
 
-def ganancia(column, target_column):
-    unique_values = column.unique()
-    total_entropy = entropia(target_column)
-    weighted_entropy = 0
-    for value in unique_values:
-        subset = target_column[column == value]
-        subset_entropy = entropia(subset)
-        weighted_entropy += (len(subset) / len(column)) * subset_entropy
-    gain = total_entropy - weighted_entropy
-    return gain
+def ganancia(columna, columnaReferencia): #Calcular la ganancia de cada columna en relacion a EsVenenosa
+    valoresUnicos = columna.unique() #Definir los valores unicos que hay
+    entropiaGlobal = entropia(columnaReferencia)
+    entropiaColumna = 0
+    for i in valoresUnicos: #Repetir con cada valor unico
+        subconjVal = columnaReferencia[columna == i]
+        entrSubconj = entropia(subconjVal)
+        entropiaColumna += (len(subconjVal) / len(columna)) * entrSubconj
+    g = entropiaGlobal - entropiaColumna
+    return g
 
 entropiaVenenosa = entropia(df['EsVenenosa'])
 entropiaPesaMucho = ganancia(df['PesaMucho'], df['EsVenenosa'])
