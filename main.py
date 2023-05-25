@@ -20,4 +20,20 @@ def entropia(columna):
     return entropia
 
 entropiaVenenosa = entropia(df['EsVenenosa'])
+entropiaPesaMucho = entropia(df['PesaMucho'])
+entropiaEsMaloliente = entropia(df['EsMaloliente'])
+entropiaManchas = entropia(df['EsConManchas'])
+entropiaSuave = entropia(df['EsSuave'])
 print("Entropía de EsVenenosa:", entropiaVenenosa)
+print("Entropía de PesaMucho:", entropiaPesaMucho)
+print("Entropía de EsMaloliente:", entropiaEsMaloliente)
+print("Entropía de EsConManchas:", entropiaManchas)
+print("Entropía de EsSuave:", entropiaSuave)
+gananciaPesa = entropiaVenenosa - entropiaPesaMucho
+gananciaMaloliente = entropiaVenenosa - entropiaEsMaloliente
+gananciaManchas = entropiaVenenosa - entropiaManchas
+gananciaSuave = entropiaVenenosa - entropiaSuave
+print("Ganancia de PesaMucho:", gananciaPesa)
+print("Ganancaia de EsMaloliente:", gananciaMaloliente)
+print("Ganancia de EsConManchas:", gananciaManchas)
+print("Ganancia de EsSuave:", gananciaSuave)
