@@ -22,7 +22,6 @@ x = np.array([
 objetivo = np.array([1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0])
 
 # Inicialización de pesos y umbral
-np.random.seed()
 pesos = [0.1] * 6
 umbral = 0.5
 
