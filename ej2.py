@@ -34,7 +34,7 @@ for epoca in range(epocas):
     print("Época:", epoca+1)
     print("Pesos:", pesos)
     for i in range(x.shape[0]):
-        # Cálculo de la salida del perceptron multiplicando las matrices
+        # Cálculo de la salida del perceptron multiplicando los arrays y sumando el umbral
         net = np.dot(x[i], pesos) + umbral
         # Si la predicción es mayor que 0 dará 1 y en caso contrario 0
         if net > 0:
