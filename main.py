@@ -1,6 +1,5 @@
 import pandas as pd
 import math
-from treelib import Node, Tree
 
 data = {
     'Seta': ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
@@ -93,3 +92,5 @@ print("Una vez realizados estos cálculos, podemos saber si una seta es venenosa
 print("ya que con los datos proporcionados, las ramas creadas no generan discrepancia de si puede o no ser venenosa")
 print("Por tanto, recogemos los datos y hemos generado un árbol para que sea más visual")
 print("El árbol es la imagen arbolID3.png")
+
+
