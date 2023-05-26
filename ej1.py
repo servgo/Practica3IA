@@ -89,7 +89,22 @@ print("\tLa mayor ganancia es EsMaloliente asi que ese será el siguiente nodo d
 
 ##Arbol
 print("Una vez realizados estos cálculos, podemos saber si una seta es venenosa o no,")
-print("ya que con los datos proporcionados, las ramas creadas no generan discrepancia de si puede o no ser venenosa")
+print("ya que con los datos proporcionados, las ramas creadas no generan discrepancia de si puede o no ser venenosa, como se puede ver aquí")
+g2 = noSuave.groupby(noSuave.EsMaloliente)
+suaveNM = g2.get_group(0)
+print("Si no es suave y no es maloliente nunca es venenosa")
+print(suaveNM)
+suaveNM = g2.get_group(1)
+print("Si no es suave y es maloliente siempre es venenosa")
+print(suaveNM)
+print("Y lo mismo con la otra rama")
+g3 = siSuave.groupby(siSuave.EsMaloliente)
+suaveM = g3.get_group(0)
+print("Si es suave y no es maloliente siempre es venenosa")
+print(suaveM)
+suaveM = g3.get_group(1)
+print("Si es suave y es maloliente nunca es venenosa")
+print(suaveM)
 print("Por tanto, recogemos los datos y hemos generado un árbol para que sea más visual")
 print("El árbol es la imagen arbolID3.png")
 
