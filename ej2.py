@@ -18,7 +18,6 @@ x = np.array([
     [0, 1, 1, 1, 0, 0]
 ])
 
-
 objetivo = np.array([1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0])
 
 # Inicialización de pesos y sesgo
@@ -31,7 +30,7 @@ epocas = 10
 
 # Entrenamiento del perceptrón
 for epoca in range(epocas):
-    print("Época:", epoca+1)
+    print("Época:", epoca + 1)
     print("Pesos:", pesos)
     print("Sesgo:", sesgo)
     for i in range(x.shape[0]):

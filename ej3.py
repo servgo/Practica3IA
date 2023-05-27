@@ -71,7 +71,8 @@ for episodio in range(num_episodios):
             nuevo_estado = (estado[0], estado[1] + 1)
 
         # Verificar si el nuevo estado está dentro de los límites del laberinto
-        if nuevo_estado[0] < 0 or nuevo_estado[0] >= num_filas or nuevo_estado[1] < 0 or nuevo_estado[1] >= num_columnas:
+        if nuevo_estado[0] < 0 or nuevo_estado[0] >= num_filas or nuevo_estado[1] < 0 or nuevo_estado[
+            1] >= num_columnas:
             continue
 
         # Obtener la recompensa en el nuevo estado

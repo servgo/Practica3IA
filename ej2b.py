@@ -115,7 +115,8 @@ entropiaDfX3_0_X1_0 = entropia(X3_0_X1_0['T'])
 entropiaDfX3_1_X1_0 = entropia(X3_1_X1_0['T'])
 
 # X3_0_X1_0
-print("En el caso de que X1 sea 0 y X3 sea 0, según los datos proporcionados T siempre es 0 por lo que se puede cerrar esta rama")
+print(
+    "En el caso de que X1 sea 0 y X3 sea 0, según los datos proporcionados T siempre es 0 por lo que se puede cerrar esta rama")
 
 ##X3_1_X1_0
 print("Seguimos por X3_1_X1_0 y calculamos su entropia")
@@ -160,18 +161,18 @@ print("\tPodemos asegurar que si X6 es 0 T será 0 y si X6 es 1 T será 1")
 print("Ahora seguimos evaluando por la unica rama que nos queda abierta, si X1 = 0, X3 = 1")
 print("y evaluamos X4")
 
-#X4_X3_1_X1_0
+# X4_X3_1_X1_0
 g4 = X3_1_X1_0.groupby(X3_1_X1_0.X4)
 X4_0_X3_1_X1_0 = g4.get_group(0)
 X4_1_X3_1_X1_0 = g4.get_group(1)
 print(X4_0_X3_1_X1_0)
 print(X4_1_X3_1_X1_0)
 
-#X4_0_X3_1_X1_0
+# X4_0_X3_1_X1_0
 print("\tViendo los datos, si X1 = 0, X3 = 1, si X4 = 0 siempre T es 0, por lo que no hace falta evaluar esa rama")
 print("\tPor tanto, evaluaremos solo el caso de que X4 sea 1")
 
-#X4_1_X3_1_X1_0
+# X4_1_X3_1_X1_0
 entropiaDfX4_1X3_1_X1_0 = entropia(X4_1_X3_1_X1_0['T'])
 print("\tLa entropia de T sabiendo que X1 es 0 y X3 es igual a 1 y que X4 es 1 es:", entropiaDfX4_1X3_1_X1_0)
 print("\tAhora calculamos las ganancias del resto de columnas")
