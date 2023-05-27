@@ -105,7 +105,7 @@ print("\tGanancia de X6 sabiendo que X1 es 1:", gananciaX6_X1_1)
 
 print("\tLa mayor ganancia es X3 asi que ese será el siguiente nodo de esta rama")
 
-# X3_0_X1_0
+# X3_X1_0
 g2 = X1_0.groupby(X1_0.X3)
 X3_0_X1_0 = g2.get_group(0)
 X3_1_X1_0 = g2.get_group(1)
@@ -115,57 +115,77 @@ entropiaDfX3_0_X1_0 = entropia(X3_0_X1_0['T'])
 entropiaDfX3_1_X1_0 = entropia(X3_1_X1_0['T'])
 
 # X3_0_X1_0
-print("Empezamos por X3_0_X1_0 y calculamos su entropia")
-print("\tLa entropia de T sabiendo que X es 0 y X3 es igual a 0 es:", entropiaDfX3_0_X1_0)
-print("\tAhora calculamos las ganancias del resto de columnas")
-gananciaX2_X3_0_X1_0 = ganancia(X3_0_X1_0['X2'], X3_0_X1_0['T'])
-gananciaX4_X3_0_X1_0 = ganancia(X3_0_X1_0['X4'], X3_0_X1_0['T'])
-gananciaX5_X3_0_X1_0 = ganancia(X3_0_X1_0['X5'], X3_0_X1_0['T'])
-gananciaX6_X3_0_X1_0 = ganancia(X3_0_X1_0['X6'], X3_0_X1_0['T'])
-
-print("\tGanancia de X2 sabiendo que X1 es 0 y X3 es igual a 0 es:", gananciaX2_X3_0_X1_0)
-print("\tGanancia de X4 sabiendo que X1 es 0 y X3 es igual a 0 es:", gananciaX4_X3_0_X1_0)
-print("\tGanancia de X5 sabiendo que X1 es 0 y X3 es igual a 0 es:", gananciaX5_X3_0_X1_0)
-print("\tGanancia de X6 sabiendo que X1 es 0 y X3 es igual a 0 es:", gananciaX6_X3_0_X1_0)
-
-print("\tLa mayor ganancia es X3 y X5 asi que X3 será el siguiente nodo de esta rama")
+print("En el caso de que X1 sea 0 y X3 sea 0, según los datos proporcionados T siempre es 0 por lo que se puede cerrar esta rama")
 
 ##X3_1_X1_0
-print("Empezamos por X3_1_X1_0 y calculamos su entropia")
-print("\tLa entropia de T sabiendo que X es 1 y X3 es igual a 1 es::", entropiaDfX3_1_X1_0)
+print("Seguimos por X3_1_X1_0 y calculamos su entropia")
+print("\tLa entropia de T sabiendo que X1 es 0 y X3 es igual a 1 es::", entropiaDfX3_1_X1_0)
 print("\tAhora calculamos las ganancias del resto de columnas")
 gananciaX2_X3_1_X1_0 = ganancia(X3_1_X1_0['X2'], X3_1_X1_0['T'])
 gananciaX4_X3_1_X1_0 = ganancia(X3_1_X1_0['X4'], X3_1_X1_0['T'])
 gananciaX5_X3_1_X1_0 = ganancia(X3_1_X1_0['X5'], X3_1_X1_0['T'])
 gananciaX6_X3_1_X1_0 = ganancia(X3_1_X1_0['X6'], X3_1_X1_0['T'])
 
-print("\tGanancia de X2 sabiendo que X1 es 1 y X3 es igual a 1 es:", gananciaX2_X3_1_X1_0)
-print("\tGanancia de X4 sabiendo que X1 es 1 y X3 es igual a 1 es:", gananciaX4_X3_1_X1_0)
-print("\tGanancia de X5 sabiendo que X1 es 1 y X3 es igual a 1 es:", gananciaX5_X3_1_X1_0)
-print("\tGanancia de X6 sabiendo que X1 es 1 y X3 es igual a 1 es:", gananciaX6_X3_1_X1_0)
+print("\tGanancia de X2 sabiendo que X1 es 0 y X3 es igual a 1 es:", gananciaX2_X3_1_X1_0)
+print("\tGanancia de X4 sabiendo que X1 es 0 y X3 es igual a 1 es:", gananciaX4_X3_1_X1_0)
+print("\tGanancia de X5 sabiendo que X1 es 0 y X3 es igual a 1 es:", gananciaX5_X3_1_X1_0)
+print("\tGanancia de X6 sabiendo que X1 es 0 y X3 es igual a 1 es:", gananciaX6_X3_1_X1_0)
+print("\tLa mayor ganancia es X4 y X5, elegimos X4 para seguir")
 
+print("Ahora repetimos el proceso por la rama de X1 = 1, evaluando X3")
 
+# X3_0_X1_0
+g3 = X1_1.groupby(X1_1.X3)
+X3_0_X1_1 = g3.get_group(0)
+X3_1_X1_1 = g3.get_group(1)
+print(X3_0_X1_1)
+print(X3_1_X1_1)
+entropiaDfX3_0_X1_1 = entropia(X3_0_X1_1['T'])
+entropiaDfX3_1_X1_1 = entropia(X3_1_X1_1['T'])
+print("Empezamos por X3_0_X1_1 y calculamos su entropia")
+print("\tLa entropia de T sabiendo que X1 es 1 y X3 es igual a 0 es:", entropiaDfX3_0_X1_1)
+print("\tAhora calculamos las ganancias del resto de columnas")
+gananciaX2_X3_0_X1_1 = ganancia(X3_0_X1_1['X2'], X3_0_X1_1['T'])
+gananciaX4_X3_0_X1_1 = ganancia(X3_0_X1_1['X4'], X3_0_X1_1['T'])
+gananciaX5_X3_0_X1_1 = ganancia(X3_0_X1_1['X5'], X3_0_X1_1['T'])
+gananciaX6_X3_0_X1_1 = ganancia(X3_0_X1_1['X6'], X3_0_X1_1['T'])
 
-'''
+print("\tGanancia de X2 sabiendo que X1 es 1 y X3 es igual a 0 es:", gananciaX2_X3_0_X1_1)
+print("\tGanancia de X4 sabiendo que X1 es 1 y X3 es igual a 0 es:", gananciaX4_X3_0_X1_1)
+print("\tGanancia de X5 sabiendo que X1 es 1 y X3 es igual a 0 es:", gananciaX5_X3_0_X1_1)
+print("\tGanancia de X6 sabiendo que X1 es 1 y X3 es igual a 0 es:", gananciaX6_X3_0_X1_1)
+print("\tLa mayor ganancia es X6 por lo que esa será la siguiente rama del árbol")
+print("\tViendo X6 en el contexto de X1 = 1 y X3 = 0, con los datos proporcionados,")
+print("\tPodemos asegurar que si X6 es 0 T será 0 y si X6 es 1 T será 1")
+print("Ahora seguimos evaluando por la unica rama que nos queda abierta, si X1 = 0, X3 = 1")
+print("y evaluamos X4")
+
+#X4_X3_1_X1_0
+g4 = X3_1_X1_0.groupby(X3_1_X1_0.X4)
+X4_0_X3_1_X1_0 = g4.get_group(0)
+X4_1_X3_1_X1_0 = g4.get_group(1)
+print(X4_0_X3_1_X1_0)
+print(X4_1_X3_1_X1_0)
+
+#X4_0_X3_1_X1_0
+print("\tViendo los datos, si X1 = 0, X3 = 1, si X4 = 0 siempre T es 0, por lo que no hace falta evaluar esa rama")
+print("\tPor tanto, evaluaremos solo el caso de que X4 sea 1")
+
+#X4_1_X3_1_X1_0
+entropiaDfX4_1X3_1_X1_0 = entropia(X4_1_X3_1_X1_0['T'])
+print("\tLa entropia de T sabiendo que X1 es 0 y X3 es igual a 1 y que X4 es 1 es:", entropiaDfX4_1X3_1_X1_0)
+print("\tAhora calculamos las ganancias del resto de columnas")
+gananciaX2_X4_1_X3_1_X1_0 = ganancia(X4_1_X3_1_X1_0['X2'], X4_1_X3_1_X1_0['T'])
+gananciaX5_X4_1_X3_1_X1_0 = ganancia(X4_1_X3_1_X1_0['X5'], X4_1_X3_1_X1_0['T'])
+gananciaX6_X4_1_X3_1_X1_0 = ganancia(X4_1_X3_1_X1_0['X6'], X4_1_X3_1_X1_0['T'])
+
+print("\tGanancia de X2 sabiendo que X1 es 0 y X3 es igual a 1 y X4 es 1 es:", gananciaX2_X4_1_X3_1_X1_0)
+print("\tGanancia de X5 sabiendo que X1 es 0 y X3 es igual a 1 y X4 es 1 es:", gananciaX5_X4_1_X3_1_X1_0)
+print("\tGanancia de X6 sabiendo que X1 es 0 y X3 es igual a 1 y X4 es 1 es:", gananciaX6_X4_1_X3_1_X1_0)
+print("\tLa ganancia mayor es X6, por lo que elegimos esa rama")
+print("\tViendo los datos, si X6 en este contexto es 1 T es 1 y viceversa")
+print("Por tanto, ya tendríamos el árbol completo")
+
 ##Arbol
-print("Una vez realizados estos cálculos, podemos saber ")
-print(
-    "ya que con los datos proporcionados, las ramas creadas no generan discrepancia de si puede o no ser venenosa, como se puede ver aquí")
-g2 = noSuave.groupby(noSuave.EsMaloliente)
-suaveNM = g2.get_group(0)
-print("Si no es suave y no es maloliente nunca es venenosa")
-print(suaveNM)
-suaveNM = g2.get_group(1)
-print("Si no es suave y es maloliente siempre es venenosa")
-print(suaveNM)
-print("Y lo mismo con la otra rama")
-g3 = siSuave.groupby(siSuave.EsMaloliente)
-suaveM = g3.get_group(0)
-print("Si es suave y no es maloliente siempre es venenosa")
-print(suaveM)
-suaveM = g3.get_group(1)
-print("Si es suave y es maloliente nunca es venenosa")
-print(suaveM)
 print("Por tanto, recogemos los datos y hemos generado un árbol para que sea más visual")
-print("El árbol es la imagen arbolID3.png")
-'''
+print("El árbol es la imagen arbolID3_2b.png")
